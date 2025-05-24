@@ -9,8 +9,9 @@ import io.cucumber.testng.CucumberOptions;
 // You can run your test cases from here 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-    features = {"./src/test/resources/Features/Login.feature"},
+    features = {"./src/test/resources/Features/PIM.feature"},
     glue = {"applicationHooks", "stepDefination"},
+    
     plugin = {
         
         "html:./Reports/myReports.html",

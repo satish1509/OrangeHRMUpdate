@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.qa.propertyIns.utils.ConfigReader;
 import com.qa.propertyIns.utils.TestUtility;
 
 public class PIMPage {
@@ -46,7 +47,7 @@ public class PIMPage {
     @FindBy(name = "lastName")
     private WebElement lastNameField;
 
-    @FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
+    @FindBy(xpath = "//input[@name='lastName']/following::input")
     private WebElement employeeIdField;
 
     @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
@@ -94,15 +95,29 @@ public class PIMPage {
         TestUtility.clickElement(addEmployeeTab);
     }
 
-    public void fillEmployeeDetails(String firstName, String lastName) {
-        TestUtility.enterText(firstNameField, firstName);
-        TestUtility.enterText(lastNameField, lastName);
+//    public void fillEmployeeDetails() {
+//        String firstName = ConfigReader.getValue("firstname");
+//        String lastName = ConfigReader.getValue("lastname");
+//        
+//        System.out.println("First Name from config: " + firstName);
+//        System.out.println("Last Name from config: " + lastName);
+    public void enterfirstname() {
+      TestUtility.enterRandomFirstname(firstNameField);
+  }
+    public void enterlastname() {
+    	
+        TestUtility.enterRandomLastname(lastNameField);
+
+    	
+    }
+    
+    public void loginid() {
+    	
+    	TestUtility.getText(employeeIdField);
     }
 
-    public void uploadPhoto(String pathToImage) {
-        photographUploadInput.sendKeys(pathToImage);
-    }
 
+    
     public void enableLoginCreation() {
         TestUtility.clickElement(createLoginSwitch);
     }

@@ -27,6 +27,8 @@ public class LoginPage extends TestUtility {
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement loginButton;
+    @FindBy(xpath="//h5[text()='Login']")
+    WebElement loginpage;
 
     // Page methods
     public void enterUsername(String username) {
@@ -41,5 +43,8 @@ public class LoginPage extends TestUtility {
 
     public void clickLogin() {
         clickElement(loginButton);
+    }
+    public void loginpagedisplayed() {
+    	isDisplayed(loginpage);
     }
 }

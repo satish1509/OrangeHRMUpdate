@@ -21,7 +21,7 @@ public class LoginPageTest {
         this.lp = new LoginPage(driver);
     }
 
-    @Given("the user navigates to the application URL")
+    @Given("the user navigates to application URL")
     public void user_navigates_to_url() {
         System.out.println("User is on login page");
     }
