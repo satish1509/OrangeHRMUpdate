@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.propertyIns.driverfactory.DriverFactory;
 import com.qa.propertyIns.utils.EleInt;
-import com.qa.propertyIns.utils.JSEUtility;
 
 public class Homepage {
 	public Homepage(WebDriver driver)

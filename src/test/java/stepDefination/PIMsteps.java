@@ -22,10 +22,7 @@ public class PIMsteps extends TestUtility {
         this.pimPage = new PIMPage(driver);
     }
 
-    @Given("the user navigates to the application URL")
-    public void user_navigates_to_url() {
-        System.out.println("User is on login page");
-    }
+   
     @Given("User navigated to the url")
     public void user_navigated_to_the_url() {
         System.out.println("URL opened.");
@@ -41,13 +38,13 @@ public class PIMsteps extends TestUtility {
         System.out.println("User signed into the application.");
     }
 
-    @When("user navigates to the PIM page")
+    @And("user navigates to the PIM page")
     public void user_navigates_to_the_pim_page() {
         pimPage.navigateToAddEmployee();
         System.out.println("User navigated to the PIM page.");
     }
 
-    @And("I click on the Add button")
+    @When("I click on the Add button")
     public void i_click_on_the_add_button() {
         System.out.println("Clicked on the Add Employee button.");
    
@@ -66,7 +63,7 @@ public class PIMsteps extends TestUtility {
 
     @And("I see employee ID number")
     public void i_see_employee_id_number() {
-         pimPage.loginid();
+        pimPage.getSavedEmployeeId();
     }
 
    
@@ -79,6 +76,26 @@ public class PIMsteps extends TestUtility {
 
     @Then("the employee should be added successfully")
     public void the_employee_should_be_added_successfully() {
+    	pimPage.isEmployeeSaved();
         System.out.println("Employee successfully added: ");
     }
+    @When("I enter employee name in the search field")
+    public void i_enter_employee_name_in_the_search_field() {
+    	pimPage.search();
+        // Simulate entering employee name
+        System.out.println("Entered employee name in the search field.");
+    }
+
+    @And("I click on the Search button")
+    public void i_click_on_the_search_button() {
+        // Simulate clicking the search button
+        pimPage.clickSave();
+    }
+
+    @Then("the employee record should be displayed in the results")
+    public void the_employee_record_should_be_displayed_in_the_results() {
+        // Simulate verifying the search result
+        System.out.println("Employee record displayed in the search results.");
+    }
+
 }

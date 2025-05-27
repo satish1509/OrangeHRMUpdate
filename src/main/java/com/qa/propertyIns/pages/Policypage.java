@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.propertyIns.utils.EleInt;
-import com.qa.propertyIns.utils.JSEUtility;
+//import com.qa.propertyIns.utils.JSEUtility;
 
 public class Policypage {
 	

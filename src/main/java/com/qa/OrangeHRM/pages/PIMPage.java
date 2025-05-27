@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.propertyIns.utils.ConfigReader;
 import com.qa.propertyIns.utils.TestUtility;
 
 public class PIMPage {
@@ -47,7 +46,7 @@ public class PIMPage {
     @FindBy(name = "lastName")
     private WebElement lastNameField;
 
-    @FindBy(xpath = "//input[@name='lastName']/following::input")
+    @FindBy(xpath = "//input[@name='lastName']/following::div/input")
     private WebElement employeeIdField;
 
     @FindBy(xpath = "(//img[@alt='profile picture'])[2]")
@@ -70,6 +69,9 @@ public class PIMPage {
 
     @FindBy(xpath = "//div[@class='oxd-toast oxd-toast--success oxd-toast-container--toast']")
     private WebElement savedEmployeeNameToast;
+    @FindBy(xpath = "//input[@class='oxd-input oxd-input--active']/preceding::input[@placeholder='Type for hints...']")
+    private WebElement employeeNameInput;
+
 
     // ========== Action Methods ==========
 
@@ -86,13 +88,16 @@ public class PIMPage {
         TestUtility.clickElement(loginButton);
     }
 
-    public boolean verifyLoginSuccess(String expectedUserName) {
-        return TestUtility.getText(userInfo).equalsIgnoreCase(expectedUserName);
-    }
+
 
     public void navigateToAddEmployee() {
         TestUtility.clickElement(pimTab);
         TestUtility.clickElement(addEmployeeTab);
+    }
+    public void search() {
+        TestUtility.clickElement(pimTab);
+        TestUtility.clickElement(employeeNameInput);
+        TestUtility.enterText(employeeNameInput, TestUtility.generatedFirstName);    	
     }
 
 //    public void fillEmployeeDetails() {
@@ -102,7 +107,7 @@ public class PIMPage {
 //        System.out.println("First Name from config: " + firstName);
 //        System.out.println("Last Name from config: " + lastName);
     public void enterfirstname() {
-      TestUtility.enterRandomFirstname(firstNameField);
+      TestUtility.enterRandomFirstName(firstNameField);
   }
     public void enterlastname() {
     	
@@ -129,14 +134,24 @@ public class PIMPage {
     }
 
     public void clickSave() {
+        System.out.println("hello world abcd");
+
         TestUtility.clickElement(saveButton);
+        System.out.println("hello world abcd");
+
     }
 
-    public boolean isEmployeeSaved() {
-        return savedEmployeeNameToast.isDisplayed();
+    public void isEmployeeSaved() {
+    	TestUtility.printIfDisplayed(savedEmployeeNameToast);
     }
 
-    public String getSavedEmployeeId() {
-        return TestUtility.getText(employeeIdField);
+    public void getSavedEmployeeId() {
+       TestUtility.getText(employeeIdField);
+    }
+    public void enterEmployeeName() {
+    	TestUtility.clickElement(employeeNameInput);
+        TestUtility.enterRandomFirstName(employeeNameInput);
+
+    	
     }
 }

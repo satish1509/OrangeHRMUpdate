@@ -37,7 +37,7 @@ public class EleInt {
 		element.clear();
 		
 		
-	}
+	} 	
 
 	// Press Enter key on a WebElement
 	public static void pressEnter(WebElement element) {
@@ -66,7 +66,7 @@ public class EleInt {
 
 	// Check if a WebElement is selected (for checkboxes or radio buttons)
 	public static boolean isSelected(WebElement element) {
-		return element.isSelected();
+		return element.isSelected(); //true 
 	}
 
 	// Submit a form using a WebElement (e.g., a submit button)

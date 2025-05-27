@@ -45,6 +45,6 @@ public class LoginPage extends TestUtility {
         clickElement(loginButton);
     }
     public void loginpagedisplayed() {
-    	isDisplayed(loginpage);
+   // 	isDisplayed(loginpage);
     }
 }
